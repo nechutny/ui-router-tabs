@@ -102,7 +102,7 @@ angular.module('ui.router.tabs').directive(
           var isAncestorOfCurrentRoute = $state.includes(tab.route, tab.params, tab.options);
           // check if it's a parent tab
           if (tab.baseParent) {
-            isAncestorOfCurrentRoute = _.includes($state.current.name, tab.baseParent);
+            isAncestorOfCurrentRoute = $state.current.name.startsWith(tab.baseParent);
           }
           return isAncestorOfCurrentRoute;
         };
